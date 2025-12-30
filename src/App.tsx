@@ -1,9 +1,13 @@
+import Login from "./pages/Login"
+import { useAuthStore } from "./store/authStore"
+import Dashboard from "./pages/Dashboard"
 
 function App() {
+  const isLoggedIn=useAuthStore((state)=>state.isLoggedIn)
 
   return (
     <>
-    <h1 className="text-center text-blue-600 text-2xl">tailwind works</h1>
+      {isLoggedIn?<Dashboard/>:<Login/>}
     </>
   )
 }
