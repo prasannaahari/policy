@@ -1,10 +1,6 @@
 import {create} from "zustand"
-type AuthState={
-    isLoggedIn:boolean;
-    user:{name:string; email:string}|null;
-    login:(user:{name:string;email:string})=>void;
-    logout:()=>void
-}
+import type {AuthState} from "../types/auth"
+
 
 export const useAuthStore=create<AuthState>((set)=>({
     isLoggedIn:false,
