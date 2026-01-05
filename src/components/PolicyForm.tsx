@@ -1,33 +1,48 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { usePolicyStore } from "../store/policyStore";
+import type{ Policy, PolicyStatus } from "../types/policy";
 
-function PolicyForm() {
+type User = {
+  id: string;
+  role: string;
+  name: string;
+};
+
+function PolicyForm({ user }: { user: User }) {
   const [name, setName] = useState<string>("");
   const addPolicy = usePolicyStore((state) => state.addPolicy);
-  function handleSubmit(e: React.FormEvent) {
+
+  const STATUS_ACTIVE: PolicyStatus = "ACTIVE";
+
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!name.trim()) return;
-    addPolicy({
+
+    const newPolicy: Policy = {
       id: crypto.randomUUID(),
-      holderName:name
-    });
+      holderName: name,
+      status: STATUS_ACTIVE,
+      version: 1,
+      createdAt: new Date().toISOString(),
+      createdBy: user.id,
+      assignedTo: ""
+    };
+
+    await addPolicy(newPolicy);
     setName("");
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="policy name"
-        />
-        <br />
-
-        <button>add policy</button>
-      </form>
-    </>
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Policy name"
+      />
+      <br />
+      <button type="submit">Add Policy</button>
+    </form>
   );
 }
 

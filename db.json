@@ -1,0 +1,55 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "name": "Admin",
+      "role": "admin"
+    },
+    {
+      "id": "u2",
+      "name": "Agent",
+      "role": "agent"
+    },
+    {
+      "id": "u3",
+      "name": "Prasannaa",
+      "role": "user"
+    }
+  ],
+  "policies": [
+    {
+      "id": "p1",
+      "holderName": "Prasannaa",
+      "assignedTo": "u3",
+      "createdBy": "u1",
+      "status": "active"
+    },
+    {
+      "id": "64d249d9-897f-4fdb-8066-f3de3e5cb3d8",
+      "holderName": "hari",
+      "status": "ACTIVE",
+      "version": 1,
+      "createdAt": "2026-01-05T07:00:33.203Z",
+      "createdBy": "u3",
+      "assignedTo": ""
+    },
+    {
+      "id": "01d83181-d1fb-41f2-b977-f45f76bbd5f2",
+      "holderName": "hari",
+      "status": "ACTIVE",
+      "version": 1,
+      "createdAt": "2026-01-05T07:00:39.790Z",
+      "createdBy": "u3",
+      "assignedTo": ""
+    },
+    {
+      "id": "d5d91cd2-3b36-4dea-b7bc-2123e94df8dd",
+      "holderName": "thanushree",
+      "status": "ACTIVE",
+      "version": 1,
+      "createdAt": "2026-01-05T07:01:36.016Z",
+      "createdBy": "u3",
+      "assignedTo": ""
+    }
+  ]
+}
